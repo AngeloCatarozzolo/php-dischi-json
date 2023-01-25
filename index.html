@@ -9,6 +9,8 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- Importato axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- importato il css -->
+    <link rel="stylesheet" href="./css/style.css">
     <title>Dischi</title>
   </head>
   <body>
@@ -18,8 +20,20 @@
           <img src="./img/logo.svg" alt="logoSpotify">
         </div>
         <h1>Lista Albums</h1>
-        <h3>Seleziona un genere</h3>
       </header>
+      <main>
+        <div class="main-container">
+          <div v-for="album in albums" class="card"> 
+            <img :src="album.poster" :alt="album.title" width="150" />
+            <div class="textbox">
+              <h4>{{album.title}}</h4>
+              <div>{{album.author}}</div>
+              <div><strong>{{album.genre}}</strong></div>
+              <div>{{album.year}}</div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
     <script src="js/main.js"></script>
   </body>
